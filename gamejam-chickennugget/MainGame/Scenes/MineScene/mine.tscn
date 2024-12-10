@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bld7auhskowov"]
+[gd_scene load_steps=34 format=3 uid="uid://bld7auhskowov"]
 
 [ext_resource type="Script" path="res://MainGame/Scenes/MineScene/mine.gd" id="1_baxod"]
 [ext_resource type="Texture2D" uid="uid://dvlpivphbapc1" path="res://Assets/Desert/Desert Wall Tileset.png" id="3_3w11q"]
@@ -13,7 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://f6h00j7y3f2o" path="res://Assets/BootItem.png" id="10_qvknx"]
 [ext_resource type="Texture2D" uid="uid://bu6qgfw461oa8" path="res://Assets/PixItem.png" id="11_5s2fp"]
 [ext_resource type="PackedScene" uid="uid://bb8ftr8o4haf" path="res://MainGame/Objects/statue.tscn" id="12_672yo"]
+[ext_resource type="PackedScene" uid="uid://di058btvar00d" path="res://Rylan/chicken_sheriff.tscn" id="15_qeaav"]
 [ext_resource type="Texture2D" uid="uid://b4xymqvukwwv4" path="res://Assets/sign.png" id="17_7dbq5"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ohev6"]
+vertices = PackedVector2Array(1270.98, 10.9922, 1270.01, 692, 6.03906, 692.992, 8.95313, 10)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1281, 1, -1, 0, -4, 703, 1280, 702)])
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3vgt7"]
 texture = ExtResource("3_3w11q")
@@ -166,6 +172,9 @@ light_mode = 1
 
 [node name="Mine" type="Node2D"]
 script = ExtResource("1_baxod")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_ohev6")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
@@ -480,6 +489,9 @@ texture = ExtResource("17_7dbq5")
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 1000
 position = Vector2(640, 360)
+
+[node name="ChickenSheriff" parent="." instance=ExtResource("15_qeaav")]
+position = Vector2(1210, 105)
 
 [connection signal="timeout" from="Control/Time/Timer" to="." method="_on_timer_timeout"]
 [connection signal="thought_bubble" from="MinesOrSpawnArea" to="MainPlayer" method="_on_mines_or_spawn_area_thought_bubble"]
