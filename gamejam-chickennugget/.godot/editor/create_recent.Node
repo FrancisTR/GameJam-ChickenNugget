@@ -1,0 +1,6 @@
+Area2D
+NavigationAgent2D
+CollisionShape2D
+CharacterBody2D
+NavigationRegion2D
+AnimatedSprite2D
