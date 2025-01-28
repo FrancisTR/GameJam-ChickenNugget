@@ -1,0 +1,97 @@
+[gd_scene load_steps=4 format=3 uid="uid://00n57qdln560"]
+
+[ext_resource type="PackedScene" uid="uid://c8wc5wufdcxgl" path="res://Scenes/Toy.tscn" id="1_7k8j8"]
+[ext_resource type="Script" path="res://Scripts/notif.gd" id="1_7n0cu"]
+[ext_resource type="Script" path="res://Scripts/tutorial.gd" id="1_lx4vg"]
+
+[node name="Tutorial" type="Node2D"]
+script = ExtResource("1_lx4vg")
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -2
+offset_top = -9.15527e-05
+offset_right = 1150.0
+offset_bottom = 653.0
+mouse_filter = 2
+color = Color(0.597691, 0.878436, 0.826656, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Notif" type="Control" parent="."]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1149.0
+offset_bottom = 645.0
+script = ExtResource("1_7n0cu")
+metadata/_edit_use_anchors_ = true
+
+[node name="Dark View" type="ColorRect" parent="Notif"]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 653.0
+color = Color(0, 0, 0, 0.294118)
+metadata/_edit_use_anchors_ = true
+
+[node name="UI Background" type="ColorRect" parent="Notif"]
+z_index = 1
+layout_mode = 0
+offset_left = 55.0
+offset_top = 72.0
+offset_right = 1076.0
+offset_bottom = 391.0
+color = Color(0.739295, 0.851249, 0.723575, 1)
+
+[node name="Message" type="Label" parent="Notif"]
+z_index = 1
+layout_mode = 0
+offset_left = 65.0
+offset_top = 93.0
+offset_right = 1063.0
+offset_bottom = 278.0
+theme_override_font_sizes/font_size = 40
+text = "Today is December 24th, Santa is behind schedule and needs someone to wrap all the presents he makes. He has assigned you to this task!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Okay" type="Button" parent="Notif"]
+z_index = 1
+layout_mode = 0
+offset_left = 481.0
+offset_top = 277.0
+offset_right = 663.0
+offset_bottom = 377.0
+theme_override_font_sizes/font_size = 30
+text = "Okay
+"
+
+[node name="Instructions" type="Label" parent="."]
+z_index = 1
+offset_left = 186.0
+offset_top = 67.0
+offset_right = 948.0
+offset_bottom = 157.0
+theme_override_font_sizes/font_size = 40
+text = "Click on toy to wrap it into a present"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Success" type="Node2D" parent="."]
+
+[node name="Toy" parent="Success" instance=ExtResource("1_7k8j8")]
+z_index = 1
+position = Vector2(566, 335)
+scale = Vector2(1.5, 1.5)
+
+[node name="Back" type="Button" parent="Success"]
+z_index = 1
+offset_left = 393.0
+offset_top = 516.0
+offset_right = 727.0
+offset_bottom = 616.0
+theme_override_font_sizes/font_size = 30
+text = "Go Back to Main Menu"
+
+[connection signal="pressed" from="Notif/Okay" to="Notif" method="_on_pressed"]
+[connection signal="toy_put_away" from="Success/Toy" to="." method="_on_toy_toy_put_away"]
+[connection signal="toy_wrapped" from="Success/Toy" to="." method="_on_toy_wrapped"]
+[connection signal="pressed" from="Success/Back" to="." method="_on_back_pressed"]
