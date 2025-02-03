@@ -32,5 +32,8 @@ text = "Toys Wrapped: 0"
 horizontal_alignment = 1
 autowrap_mode = 3
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="toy_put_away" from="Toy" to="." method="_on_toy_put_away"]
 [connection signal="toy_wrapped" from="Toy" to="." method="_on_toy_wrapped"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

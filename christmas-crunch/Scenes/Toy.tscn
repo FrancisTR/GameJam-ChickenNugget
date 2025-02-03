@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8wc5wufdcxgl"]
 
 [ext_resource type="Script" path="res://Scripts/toy.gd" id="1_6pnen"]
-[ext_resource type="Texture2D" uid="uid://b167n2llppben" path="res://Assets/temp-toy1.png" id="2_1vf7s"]
-[ext_resource type="Texture2D" uid="uid://blapis80l03m6" path="res://Assets/temp-present1.png" id="3_cyflp"]
+[ext_resource type="Texture2D" uid="uid://befpywf53qyup" path="res://Assets/toys3.png" id="2_oq88h"]
+[ext_resource type="Texture2D" uid="uid://b2q3qti2837yr" path="res://Assets/present1.png" id="3_o4tfo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ygygm"]
 size = Vector2(200, 200)
@@ -11,11 +11,16 @@ size = Vector2(200, 200)
 script = ExtResource("1_6pnen")
 
 [node name="Toy" type="Sprite2D" parent="."]
-texture = ExtResource("2_1vf7s")
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("2_oq88h")
 
 [node name="Wrapping" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("3_cyflp")
+texture_filter = 1
+position = Vector2(9.05991e-06, -5.00679e-06)
+scale = Vector2(6.25, 6.25)
+texture = ExtResource("3_o4tfo")
 
 [node name="Area2D" type="Area2D" parent="."]
 

@@ -6,15 +6,15 @@ signal toy_put_away
 var count=0
 
 var toys = [
-	preload("res://Assets/temp-toy1.png"),
-	preload("res://Assets/temp-toy2.png"),
-	preload("res://Assets/temp-toy3.png"),
+	preload("res://Assets/toys1.png"),
+	preload("res://Assets/toys2.png"),
+	preload("res://Assets/toys3.png"),
 ]
 
 var wrapping = [
-	preload("res://Assets/temp-present1.png"),
-	preload("res://Assets/temp-present2.png"),
-	preload("res://Assets/temp-present3.png"),
+	preload("res://Assets/present1.png"),
+	preload("res://Assets/present2.png"),
+	preload("res://Assets/present3.png"),
 ]
 
 # Called when the node enters the scene tree for the first time.
